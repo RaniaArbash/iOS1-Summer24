@@ -36,10 +36,29 @@ class Rectangle : Shape { // Rectangle is a Shape
     }
 }
 
+class Circle : Shape { // Circle is a Shape
+    var radius: Int
+    
+    init(n: String, s: Double, r: Int){
+        self.radius = r
+        super.init(name: n, size: s)
+    }
+    override init() {
+        self.radius = 0
+        super.init()
+    }
+    override func printShape() {
+        print("This Circle is \(name) and its size is \(size) and its radius is \(radius)")
+
+    }
+    
+}
 
 var circle : Shape = Shape(name: "Circle", size: 2.3)
 circle.printShape()
 var board : Rectangle = Rectangle(name: "Board", size: 44.6, length: 100, width: 34)
 board.printShape()
 
+var plate: Circle = Circle(n: "Plate", s: 22.3, r: 10)
 
+plate.printShape()
