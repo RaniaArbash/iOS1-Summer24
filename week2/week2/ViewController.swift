@@ -45,9 +45,7 @@ class ViewController: UIViewController {
 
     }
 
-    
-    // UI event function
-    @IBAction func addOneCLicked(_ sender: Any) {
+    func doMath (op:String ){
         let firstResult = validateTextField(textValue: numberText.text)
         
         if firstResult.0 {
@@ -56,6 +54,7 @@ class ViewController: UIViewController {
             if secondResult.0{
                 thechange = secondResult.1
                 myLabel.textColor = UIColor.black
+                
                 myLabel.text = "The number is \(number + thechange )"
 
             }else {
@@ -69,7 +68,12 @@ class ViewController: UIViewController {
 
         }
         
-        
+       
+    }
+    
+    // UI event function
+    @IBAction func addOneCLicked(_ sender: Any) {
+        doMath(op: "+")
        
     }
     
@@ -77,25 +81,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func subOneCLicked(_ sender: Any) {
-        let firstResult = validateTextField(textValue: numberText.text)
-        
-        if firstResult.0 {
-            number = firstResult.1
-            let secondResult = validateTextField(textValue: changeValue.text)
-            if secondResult.0{
-                thechange = secondResult.1
-                myLabel.text = "The number is \(number - thechange )"
-
-            }else {
-                myLabel.text = "There are some errors in the input"
-            }
-            
-        }else {
-            myLabel.text = "There are some errors in the input"
-
-        }
-      
-        
+        doMath(op: "-")
     }
     
     
