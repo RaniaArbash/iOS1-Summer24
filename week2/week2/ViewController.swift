@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var opImage: UIImageView!
+    
     // UI variable
     @IBOutlet weak var myLabel: UILabel!
     
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("In view did load")
         myLabel.text = "The number is \(number)"
+        opImage.image = UIImage(named: "main.png")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,15 +57,40 @@ class ViewController: UIViewController {
             if secondResult.0{
                 thechange = secondResult.1
                 myLabel.textColor = UIColor.black
+                var result = 0
+                switch op {
+                case "+":
+                  result = number + thechange
+                    opImage.image = UIImage(named: "add")
+                    break
+                case "-":
+                    opImage.image = UIImage(named: "sub")
+                  result = number - thechange
+                    break
+                case "*":
+                    opImage.image = UIImage(named: "times")
+                  result = number * thechange
+                    break
+                case "/":
+                    opImage.image = UIImage(named: "divide")
+                  result = number / thechange
+                    break
+                default:
+                    result = 0
                 
-                myLabel.text = "The number is \(number + thechange )"
+                }
+                
+                myLabel.text = "The result is \(result )"
 
             }else {
                 myLabel.textColor = UIColor.red
                 myLabel.text = "There are some errors in the input"
+                opImage.image = UIImage(named: "error")
             }
             
         }else {
+            opImage.image = UIImage(named: "error")
+
             myLabel.textColor = UIColor.red
             myLabel.text = "There are some errors in the input"
 
@@ -72,16 +100,34 @@ class ViewController: UIViewController {
     }
     
     // UI event function
-    @IBAction func addOneCLicked(_ sender: Any) {
-        doMath(op: "+")
-       
-    }
-    
-    
-    
-    
     @IBAction func subOneCLicked(_ sender: Any) {
-        doMath(op: "-")
+     
+        if sender is UIButton {
+            var title = (sender as! UIButton).titleLabel?.text
+            
+            switch title {
+            case "Add":
+                doMath(op: "+")
+                
+                break
+            case "Sub" :
+                doMath(op: "-")
+                break
+            case "Times" :
+                doMath(op: "*")
+                break
+            case "Divid" :
+                doMath(op: "/")
+                break
+            default:
+                print("No tilte")
+            }
+        }
+        else {
+            myLabel.text = "The switch is turned ON/OFF"
+            
+        }
+        
     }
     
     
