@@ -9,6 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var one: UIButton!
+    
+    
+    
+    
+    @IBOutlet weak var two: UIButton!
+    
+    
     @IBOutlet weak var opImage: UIImageView!
     
     // UI variable
@@ -19,6 +27,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var changeValue: UITextField!
     
+    var light_mode = true
     
     // developer varialbe
     var number : Int = 0
@@ -30,6 +39,7 @@ class ViewController: UIViewController {
         print("In view did load")
         myLabel.text = "The number is \(number)"
         opImage.image = UIImage(named: "main.png")
+        self.view.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,12 +129,32 @@ class ViewController: UIViewController {
             case "Divid" :
                 doMath(op: "/")
                 break
+            case "Clear":
+                changeValue.text = ""
+                numberText.text = ""
+                myLabel.text = ""
+                opImage.image = UIImage(named: "main")
+                break
             default:
                 print("No tilte")
             }
         }
         else {
-            myLabel.text = "The switch is turned ON/OFF"
+            if light_mode {
+                self.view.backgroundColor = UIColor.lightGray
+                myLabel.textColor = UIColor.white
+                one.titleLabel?.textColor = UIColor.white
+                two.titleLabel?.textColor = UIColor.white
+                
+            }else {
+                self.view.backgroundColor = UIColor.white
+                myLabel.textColor = UIColor.black
+                one.titleLabel?.textColor = UIColor.blue
+                two.titleLabel?.textColor = UIColor.blue
+                
+
+            }
+            light_mode = !light_mode
             
         }
         

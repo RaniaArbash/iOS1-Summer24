@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-b4-Hcd">
-                                <rect key="frame" x="16" y="524" width="85" height="82"/>
+                                <rect key="frame" x="16" y="524" width="66" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add"/>
@@ -82,6 +82,15 @@
                                 <rect key="frame" x="92" y="378" width="178" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yV-a6-mFw">
+                                <rect key="frame" x="139" y="624" width="85" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Clear"/>
+                                <connections>
+                                    <action selector="subOneCLicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vym-su-TcU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -90,7 +99,9 @@
                         <outlet property="changeValue" destination="75U-9K-nSP" id="oy3-ac-0U1"/>
                         <outlet property="myLabel" destination="llA-Rq-CtZ" id="Vbb-YT-Yfk"/>
                         <outlet property="numberText" destination="v45-cC-25G" id="ccl-92-u27"/>
+                        <outlet property="one" destination="QI2-b4-Hcd" id="pya-Na-kEs"/>
                         <outlet property="opImage" destination="VXt-Ag-dhM" id="gw4-4o-wu6"/>
+                        <outlet property="two" destination="lSR-qV-fI5" id="Ppo-Ve-VhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
