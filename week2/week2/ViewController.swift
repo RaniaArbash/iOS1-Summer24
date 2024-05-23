@@ -146,13 +146,12 @@ class ViewController: UIViewController {
                 one.titleLabel?.textColor = UIColor.white
                 two.titleLabel?.textColor = UIColor.white
                 
-            }else {
+            } else {
                 self.view.backgroundColor = UIColor.white
                 myLabel.textColor = UIColor.black
                 one.titleLabel?.textColor = UIColor.blue
                 two.titleLabel?.textColor = UIColor.blue
-                
-
+            
             }
             light_mode = !light_mode
             
