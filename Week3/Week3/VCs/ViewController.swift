@@ -69,7 +69,6 @@ class ViewController: UIViewController {
                     var alertAction = UIAlertAction(title: "Fine", style: .default) { action in
                         
                         print("Hello this statment in Fine action")
-                        
                     }
                     alert.addAction(alertAction)
                     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
