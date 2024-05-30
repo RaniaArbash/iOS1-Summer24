@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIPickerViewDelegate , UIPickerViewDataSource {
+class ViewController: UIViewController  {
  
     @IBOutlet weak var semesterPicker: UIPickerView!
     
@@ -19,10 +19,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     var semesters : [String] = ["Summer 24", "Fall 24","Winter 25","Summer 25"]
 
 
+    var mystring = "Hello this is the end of today's class                           "
+    var mystring2 = "This is Summer 24                           "
+    var mystring3 = "Hello At Humber College                           "
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         namesTable.delegate = self
         namesTable.dataSource = self
+        mystring.trimmingMyStrings()
     }
 
 
@@ -56,7 +62,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
         
     }
-    
+}
+
+
+extension ViewController : UITableViewDelegate , UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -105,6 +114,12 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     }
     
     
+}
+
+
+extension ViewController: UIPickerViewDelegate , UIPickerViewDataSource {
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
     }
@@ -121,6 +136,15 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         print("The selected row is \(row)" )
     }
     
-    
 }
 
+
+extension String {
+    
+    func trimmingMyStrings(){
+        
+        
+        
+    }
+    
+}
