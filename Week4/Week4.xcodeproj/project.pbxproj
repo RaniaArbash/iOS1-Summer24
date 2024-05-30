@@ -14,6 +14,8 @@
 		212A77FE2C090E8400F8177E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212A77FD2C090E8400F8177E /* Assets.xcassets */; };
 		212A78012C090E8400F8177E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 212A78002C090E8400F8177E /* Base */; };
 		212A78092C0920D700F8177E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212A78082C0920D700F8177E /* SecondViewController.swift */; };
+		212A780B2C09275300F8177E /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212A780A2C09275300F8177E /* StudentListViewController.swift */; };
+		212A780D2C09279300F8177E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212A780C2C09279300F8177E /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		212A78002C090E8400F8177E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		212A78022C090E8400F8177E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		212A78082C0920D700F8177E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		212A780A2C09275300F8177E /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
+		212A780C2C09279300F8177E /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				212A77FF2C090E8400F8177E /* LaunchScreen.storyboard */,
 				212A78022C090E8400F8177E /* Info.plist */,
 				212A78082C0920D700F8177E /* SecondViewController.swift */,
+				212A780A2C09275300F8177E /* StudentListViewController.swift */,
+				212A780C2C09279300F8177E /* Student.swift */,
 			);
 			path = Week4;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212A780B2C09275300F8177E /* StudentListViewController.swift in Sources */,
+				212A780D2C09279300F8177E /* Student.swift in Sources */,
 				212A78092C0920D700F8177E /* SecondViewController.swift in Sources */,
 				212A77F92C090E8200F8177E /* ViewController.swift in Sources */,
 				212A77F52C090E8200F8177E /* AppDelegate.swift in Sources */,

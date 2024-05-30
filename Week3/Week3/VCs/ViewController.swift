@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("view did load in VC")
+        imageInVC.layer.backgroundColor = CGColor(red: CGFloat(255), green: CGFloat(255), blue: CGFloat(255), alpha: CGFloat(1))
     }
     
     override func viewWillAppear(_ animated: Bool) {
