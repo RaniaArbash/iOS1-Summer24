@@ -6,16 +6,19 @@
 //
 
 import Foundation
-
+import UIKit
 
 class Student {
     
     var name:String = ""
     var program : String = ""
+    var stdImage : UIImage
     
-    init(name: String, program: String) {
+    
+    init(name: String, program: String, img: UIImage) {
         self.name = name
         self.program = program
+        self.stdImage = img
     }
     
 }

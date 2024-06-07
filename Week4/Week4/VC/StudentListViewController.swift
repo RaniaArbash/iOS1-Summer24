@@ -7,10 +7,12 @@
 
 import UIKit
 
-class StudentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StudentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
  
+    var selectedImage = UIImage(named: "img")
     
-
+    @IBOutlet weak var stdimage: UIImageView!
+    
     @IBOutlet weak var nameText: UITextField!
     var studentList = [Student]()
     
@@ -28,13 +30,45 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func takeAphoto(_ sender: Any) {
+        
+        let c = UIImagePickerController()
+      
+        c.sourceType = .photoLibrary
+        c.delegate = self
+        c.allowsEditing = false
+        
+        
+        present(c, animated: true)
+        
+    }
     
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        let si = info[.originalImage] as? UIImage
+        if let goodimg = si {
+            stdimage.image  = goodimg
+            selectedImage = goodimg
+        }
+        
+        
+       
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        print("the picker is canceled")
+        dismiss(animated: true)
+    }
+
     @IBAction func insertNewStudent(_ sender: Any) {
         if let goodName = nameText.text {
             if let goodProgram = programText.text {
                 if !goodName.isEmpty {
                     if !goodProgram.isEmpty {
-                        var newStd = Student(name: goodName, program: goodProgram)
+                        var newStd = Student(name: goodName, program: goodProgram, img: selectedImage!)
                         studentList.append(newStd)
             
                         student_table.reloadData()
@@ -52,15 +86,20 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         return studentList.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = studentList[indexPath.row].name
-        cell?.detailTextLabel?.text = studentList[indexPath.row].program
         
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? studentTableViewCell
+        
+        cell?.nameText.text = studentList[indexPath.row].name
+        cell?.programText.text = studentList[indexPath.row].program
+        cell?.img.image = studentList[indexPath.row].stdImage
+       
         return cell!
-        
-        
-        
         
     }
     
