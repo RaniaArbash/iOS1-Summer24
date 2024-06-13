@@ -7,52 +7,45 @@
 
 import UIKit
 
-class ContactsTableViewController: UITableViewController, AddNewContactDelegateProtocol {
+class ContactsTableViewController: UITableViewController, AddNewContactDelegateProtocol , UISearchBarDelegate  {
     
-    //var dic : [String: [Int]]
     
-    var sections = ["A", "B","C"]
+    @IBOutlet weak var searchbar: UISearchBar!
+        
+
     
     var contactList = (UIApplication.shared.delegate as? AppDelegate)?.ContactList
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        }
+        searchbar.delegate = self
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let addingVC = segue.destination as? AddNewContactViewController
-        addingVC?.delegate = self
+        if segue.identifier == "toadd"{
+            let addingVC = segue.destination as? AddNewContactViewController
+            addingVC?.delegate = self
+            addingVC?.sender = "Adding"
+        }else {
+            
+            let viewingVC = segue.destination as? EditingViewController
+            viewingVC?.selectedContactIndex = tableView.indexPathForSelectedRow!.row
+        }
+        
+        
         
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-    
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-//        
-//        return sections
-//    }
-
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-       
-        return sections.count
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contactList!.count
     }
+
+    
+    
  
      func addingDidFinishCorrectly(newContact : Contact){
         (UIApplication.shared.delegate as? AppDelegate)?.ContactList.append(newContact)
@@ -67,24 +60,38 @@ class ContactsTableViewController: UITableViewController, AddNewContactDelegateP
     }
 
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = contactList![indexPath.row].name
       
         cell.detailTextLabel?.text = contactList![indexPath.row].phoneNumber
-        
-        
-        
        cell.imageView?.image =  contactList![indexPath.row].gender ? UIImage(named: "female") : UIImage(named: "male")
 
-        
-        
+    
         return cell
     }
     
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+    
+        
+        
+        if searchText.count > 0 {
+            var newList = contactList?.filter({ contact in
+                return  contact.name.localizedCaseInsensitiveContains(searchText)
+            })
+            
+            
+             contactList = newList
+            tableView.reloadData()
+        }else {
+            contactList = (UIApplication.shared.delegate as? AppDelegate)?.ContactList
+            tableView.reloadData()
+        }
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

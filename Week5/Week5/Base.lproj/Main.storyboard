@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contacts Table View Controller-->
+        <!--Contact List-->
         <scene sceneID="aMF-Md-Muq">
             <objects>
                 <tableViewController id="6nF-LS-1ci" customClass="ContactsTableViewController" customModule="Week5" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,9 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="sna-aI-jCL">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="6nF-LS-1ci" id="3jA-fV-QBR"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="p9O-zY-jku" detailTextLabel="5J9-TG-q4p" style="IBUITableViewCellStyleSubtitle" id="2iH-GL-L8k">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2iH-GL-L8k" id="tHP-hd-6I1">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -40,6 +48,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RwV-fU-rbo" kind="show" identifier="toview" id="IAC-XC-CXg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,17 +58,42 @@
                             <outlet property="delegate" destination="6nF-LS-1ci" id="lon-M5-eAj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OE0-zb-WXu">
+                    <navigationItem key="navigationItem" title="Contact List" id="OE0-zb-WXu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U4i-TD-Wuc">
                             <connections>
-                                <segue destination="JGM-4O-lx9" kind="presentation" modalPresentationStyle="automatic" id="zUg-8a-I71"/>
+                                <segue destination="JGM-4O-lx9" kind="presentation" identifier="toadd" modalPresentationStyle="automatic" id="zUg-8a-I71"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchbar" destination="sna-aI-jCL" id="dmn-dS-wSW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFM-0I-pWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1350.3816793893129" y="123.94366197183099"/>
+        </scene>
+        <!--Editing View Controller-->
+        <scene sceneID="mDd-ln-Djr">
+            <objects>
+                <viewController id="RwV-fU-rbo" customClass="EditingViewController" customModule="Week5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ss-Av-DHu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="F5y-BM-D6o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j72-DO-NKW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="de8-uv-le5">
+                            <connections>
+                                <segue destination="JGM-4O-lx9" kind="presentation" id="Caj-oQ-efB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyn-Wu-pHn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944" y="832"/>
         </scene>
         <!--Add New Contact View Controller-->
         <scene sceneID="u8N-vp-Zyu">
@@ -148,6 +184,9 @@
             <point key="canvasLocation" x="423.66412213740455" y="123.94366197183099"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Caj-oQ-efB"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

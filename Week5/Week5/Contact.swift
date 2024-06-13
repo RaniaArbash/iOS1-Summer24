@@ -9,6 +9,9 @@ import Foundation
 
 
 class Contact {
+  
+ 
+    
     var name: String
     var gender : Bool
     var phoneNumber : String

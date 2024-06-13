@@ -26,12 +26,21 @@ class AddNewContactViewController: UIViewController  {
     
     
     
+    var sender = ""
+    
     var delegate : AddNewContactDelegateProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-    
+       if sender == "Adding"
+        {
+            
+            
+        }
+        else if sender == "Editing"{
+            
+            
+        }
         // Do any additional setup after loading the view.
     }
     
