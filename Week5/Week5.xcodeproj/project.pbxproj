@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2162508A2C1B702600B4749D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216250892C1B702600B4749D /* Contact.swift */; };
 		21666E6A2C125F3900E47DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21666E692C125F3900E47DCB /* AppDelegate.swift */; };
 		21666E6C2C125F3900E47DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21666E6B2C125F3900E47DCB /* SceneDelegate.swift */; };
 		21666E712C125F3900E47DCB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21666E702C125F3900E47DCB /* Base */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		216250892C1B702600B4749D /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		21666E662C125F3900E47DCB /* Week5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21666E692C125F3900E47DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21666E6B2C125F3900E47DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				21666E772C125F3900E47DCB /* Info.plist */,
 				21666E7D2C125F8300E47DCB /* ContactsTableViewController.swift */,
 				21666E7F2C12611900E47DCB /* AddNewContactViewController.swift */,
+				216250892C1B702600B4749D /* Contact.swift */,
 			);
 			path = Week5;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				21666E6A2C125F3900E47DCB /* AppDelegate.swift in Sources */,
 				21666E6C2C125F3900E47DCB /* SceneDelegate.swift in Sources */,
+				2162508A2C1B702600B4749D /* Contact.swift in Sources */,
 				21666E802C12611900E47DCB /* AddNewContactViewController.swift in Sources */,
 				21666E7E2C125F8300E47DCB /* ContactsTableViewController.swift in Sources */,
 			);

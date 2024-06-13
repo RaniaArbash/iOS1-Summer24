@@ -9,35 +9,91 @@ import UIKit
 
 
 protocol AddNewContactDelegateProtocol{
-    func addingDidFinishCorrectly(name: String)
+    func addingDidFinishCorrectly(newContact : Contact)
     func addingDidCancel()
 }
 
 
 
-class AddNewContactViewController: UIViewController {
+class AddNewContactViewController: UIViewController  {
 
+    @IBOutlet weak var numberText: UITextField!
+    
+    @IBOutlet weak var nameText: UITextField!
+    
+    
+    @IBOutlet weak var genderSwitch: UISwitch!
+    
+    
+    
     var delegate : AddNewContactDelegateProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print( (UIApplication.shared.delegate as? AppDelegate)?.numbers[2])
-      
+       
+    
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func DoneClicked(_ sender: Any) {
-        //
-        delegate?.addingDidFinishCorrectly(name: "New Contact")
-        dismiss(animated: true)
+        if let name = nameText.text {
+            if  !name.isEmpty {
+                if let phoneNumber = numberText.text {
+                    if  !phoneNumber.isEmpty {
+                        
+                        var newContact = Contact(name: name, gender:genderSwitch.isOn , phoneNumber: phoneNumber)
+                        
+                        delegate?.addingDidFinishCorrectly(newContact: newContact)
+                        dismiss(animated: true)
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        
+       
     }
     
     
     
     @IBAction func cancelClicked(_ sender: Any) {
-        delegate?.addingDidCancel()
-        dismiss(animated: true)
+                
+        guard let goodName = nameText.text , let goodNumber = numberText.text else  {
+                return
+            }
+        
+       // var valid =
+        
+        guard !goodName.isEmpty || !goodNumber.isEmpty  else{
+            delegate?.addingDidCancel()
+            dismiss(animated: true)
+            return
+        }
+        
+        // here if there is any text in one of them
+        
+        var alert = UIAlertController(title: "Are you sure you want to discard the new contact ? ", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Discard Changes", style: .destructive, handler: { action in
+            
+            self.delegate?.addingDidCancel()
+            self.dismiss(animated: true)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Keep Editing", style: .cancel))
+        
+        present(alert, animated: true)
+        
+        
+        
+        
+        
+        
+       
         
     }
     

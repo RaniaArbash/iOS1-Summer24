@@ -9,42 +9,61 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController, AddNewContactDelegateProtocol {
     
+    //var dic : [String: [Int]]
+    
+    var sections = ["A", "B","C"]
+    
+    var contactList = (UIApplication.shared.delegate as? AppDelegate)?.ContactList
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print( (UIApplication.shared.delegate as? AppDelegate)?.numbers[2])// 66
-        (UIApplication.shared.delegate as? AppDelegate)?.numbers[2] += 20 // 86
-        
-        
-        
-        
-
         }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var addingVC = segue.destination as? AddNewContactViewController
+        let addingVC = segue.destination as? AddNewContactViewController
         addingVC?.delegate = self
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+        return 1
+    }
+    
+    
+//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        
+//        return sections
+//    }
+
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
        
-        return 1
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contactList!.count
+    }
+ 
+     func addingDidFinishCorrectly(newContact : Contact){
+        (UIApplication.shared.delegate as? AppDelegate)?.ContactList.append(newContact)
+        
+        contactList = (UIApplication.shared.delegate as? AppDelegate)?.ContactList
+        
+        tableView.reloadData()
     }
     
-    func addingDidFinishCorrectly(name: String) {
-        print("adding is done")
-    }
-    
-    func addingDidCancel() {
-        print("adding is cancel")
+      func addingDidCancel() {
+       
     }
 
 
@@ -52,8 +71,16 @@ class ContactsTableViewController: UITableViewController, AddNewContactDelegateP
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
+        cell.textLabel?.text = contactList![indexPath.row].name
+      
+        cell.detailTextLabel?.text = contactList![indexPath.row].phoneNumber
         
+        
+        
+       cell.imageView?.image =  contactList![indexPath.row].gender ? UIImage(named: "female") : UIImage(named: "male")
 
+        
+        
         return cell
     }
     
