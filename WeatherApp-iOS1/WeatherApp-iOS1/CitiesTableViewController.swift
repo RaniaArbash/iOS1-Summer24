@@ -49,10 +49,30 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
         apiList = list
         
         DispatchQueue.main.async {
+            self.fromStringToCity(stringCity: list[0])
             self.tableView.reloadData()
 
         }
     }
+    
+    
+    func fromStringToCity(stringCity: String){
+        
+       
+        // Toronot, ON, Canada
+       var parts = stringCity.split(separator: ",")
+        // "Toronto"
+        // " ON"
+        // " Canada"
+        for part in parts {
+            var p = part.trimmingPrefix(" ")//
+            print(p)
+        }
+        
+       
+        
+    }
+    
     //071c3ffca10be01d334505630d2c1a9c
     func networkingDidFail() {
         DispatchQueue.main.async {

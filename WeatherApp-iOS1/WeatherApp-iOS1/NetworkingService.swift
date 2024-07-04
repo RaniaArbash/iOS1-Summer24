@@ -55,9 +55,7 @@ class NetworkingService {
                     }catch {
                         print(error)
                     }
-                   
                 }
-            
         }
         
         task.resume()

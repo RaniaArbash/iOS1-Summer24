@@ -12,7 +12,7 @@ class City {
     var state: String = ""
     var country : String = ""
         
-    
+  
     
     
 }
