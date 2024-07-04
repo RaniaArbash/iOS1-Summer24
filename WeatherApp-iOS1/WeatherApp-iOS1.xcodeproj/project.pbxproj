@@ -13,6 +13,8 @@
 		21CA2AB32C3723570063E34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21CA2AB22C3723570063E34B /* Assets.xcassets */; };
 		21CA2AB62C3723570063E34B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21CA2AB52C3723570063E34B /* Base */; };
 		21CA2ABE2C37239C0063E34B /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2ABD2C37239C0063E34B /* CitiesTableViewController.swift */; };
+		21CA2AC02C3728B60063E34B /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2ABF2C3728B60063E34B /* NetworkingService.swift */; };
+		21CA2AC22C3728E60063E34B /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2AC12C3728E60063E34B /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		21CA2AB52C3723570063E34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21CA2AB72C3723570063E34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21CA2ABD2C37239C0063E34B /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		21CA2ABF2C3728B60063E34B /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		21CA2AC12C3728E60063E34B /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				21CA2AB42C3723570063E34B /* LaunchScreen.storyboard */,
 				21CA2AB72C3723570063E34B /* Info.plist */,
 				21CA2ABD2C37239C0063E34B /* CitiesTableViewController.swift */,
+				21CA2ABF2C3728B60063E34B /* NetworkingService.swift */,
+				21CA2AC12C3728E60063E34B /* City.swift */,
 			);
 			path = "WeatherApp-iOS1";
 			sourceTree = "<group>";
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CA2AAA2C3723560063E34B /* AppDelegate.swift in Sources */,
+				21CA2AC22C3728E60063E34B /* City.swift in Sources */,
 				21CA2AAC2C3723560063E34B /* SceneDelegate.swift in Sources */,
 				21CA2ABE2C37239C0063E34B /* CitiesTableViewController.swift in Sources */,
+				21CA2AC02C3728B60063E34B /* NetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
