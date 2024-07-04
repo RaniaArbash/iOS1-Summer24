@@ -7,13 +7,14 @@
 
 import UIKit
 
-class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
-
+class CitiesTableViewController: UITableViewController, UISearchBarDelegate, NetworkingServiceDelegate {
+ 
+    var apiList = [String]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NetworkingService.shared.delegate = self
     }
 
     // MARK: - Table view data source
@@ -23,20 +24,44 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return apiList.count
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       // NetworkingService.shared.
+        if searchText.count > 2{
+            NetworkingService.shared.getCitiesFromAPI(searchText: searchText)
+        }
+        else {
+            apiList = [String]()
+            tableView.reloadData()
+        }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-       
-
+        cell.textLabel?.text = apiList[indexPath.row]
         return cell
+    }
+    
+    func networkingDidFinishWithCities(list: [String]) {
+        apiList = list
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+
+        }
+    }
+    //071c3ffca10be01d334505630d2c1a9c
+    func networkingDidFail() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Networking Error", message: "SomeThing went wrong!!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
+        }
+        // Name, State, Country
+       
     }
     
 

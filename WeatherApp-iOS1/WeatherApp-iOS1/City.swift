@@ -8,9 +8,14 @@
 import Foundation
 
 class City {
-    
     var name: String = ""
     var state: String = ""
     var country : String = ""
+        
+    
+    
     
 }
+
+
+
