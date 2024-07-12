@@ -75,10 +75,14 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
        
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // Important: Don't add didSelectRow and prepareForSegue in the same view controller.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         var i = tableView.indexPathForSelectedRow?.row
-      
-        NetworkingService.shared.getWeatherInCity(c:( fromStringToCity( stringCity: apiList[i!])))
+        var selectedCity = fromStringToCity(stringCity: apiList[i!])
+        (segue.destination as! WeatherViewController).city = selectedCity
+        
     }
     
 

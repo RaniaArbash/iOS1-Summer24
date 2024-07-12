@@ -20,9 +20,16 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var tempText: UILabel!
     
+    var city: City?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NetworkingService.shared.getWeatherInCity(c: city!) { weatherObj in
+            self.tempText.text = "\( weatherObj.main.temp)"
+            self.descText.text = weatherObj.weather[0].description
+            self.feelsLike.text = "\( weatherObj.main.feels_like)"
+            
+        }
     }
     
 

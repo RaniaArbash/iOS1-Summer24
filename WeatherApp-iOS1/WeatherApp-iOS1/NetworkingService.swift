@@ -7,12 +7,10 @@
 
 import Foundation
 
-
+// Option 1: send data via delegate Protocol
 protocol NetworkingServiceDelegate {
-    
     func networkingDidFinishWithCities(list:[String])
     func networkingDidFail()
-    
 }
 
 class NetworkingService {
@@ -63,9 +61,12 @@ class NetworkingService {
     //071c3ffca10be01d334505630d2c1a9c
 
     
-    func getWeatherInCity(c: City){
+    
+    // Option 2: send data via completion Handler.
+
+    func getWeatherInCity(c: City, completionHandler: @escaping (WeatherObject)->Void ){
         
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(c.toString())&appid=071c3ffca10be01d334505630d2c1a9c"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(c.toString())&appid=071c3ffca10be01d334505630d2c1a9c&units=metric"
         let urlObject = URL(string: urlString)!
         
         let task = URLSession.shared.dataTask(with: urlObject) { data, response, error in
@@ -91,8 +92,10 @@ class NetworkingService {
                     do{
                         
                         let weatherObject = try decoder.decode(WeatherObject.self, from: gooddata)
-                      
-                        print("\(weatherObject.main.temp)")
+                        
+                        DispatchQueue.main.async {
+                            completionHandler(weatherObject)
+                        }
                         
                     }catch {
                         print(error)
