@@ -55,23 +55,14 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
         }
     }
     
+    func fromStringToCity(stringCity: String) -> City{
     
-    func fromStringToCity(stringCity: String){
-        
-       
-        // Toronot, ON, Canada
-       var parts = stringCity.split(separator: ",")
-        // "Toronto"
-        // " ON"
-        // " Canada"
-        for part in parts {
-            var p = part.trimmingPrefix(" ")//
-            print(p)
-        }
-        
-       
-        
+        let parts = stringCity.split(separator: ",")
+
+        return City(name: String(parts[0].trimmingPrefix(" ")), state: String(parts[1].trimmingPrefix(" ")), country: String(parts[2].trimmingPrefix(" ")))
     }
+    
+    
     
     //071c3ffca10be01d334505630d2c1a9c
     func networkingDidFail() {
@@ -82,6 +73,12 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
         }
         // Name, State, Country
        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var i = tableView.indexPathForSelectedRow?.row
+      
+        NetworkingService.shared.getWeatherInCity(c:( fromStringToCity( stringCity: apiList[i!])))
     }
     
 

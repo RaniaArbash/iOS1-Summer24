@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21AF92012C41845500A44285 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF92002C41845500A44285 /* WeatherViewController.swift */; };
 		21CA2AAA2C3723560063E34B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2AA92C3723560063E34B /* AppDelegate.swift */; };
 		21CA2AAC2C3723560063E34B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2AAB2C3723560063E34B /* SceneDelegate.swift */; };
 		21CA2AB12C3723560063E34B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21CA2AB02C3723560063E34B /* Base */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21AF92002C41845500A44285 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		21CA2AA62C3723560063E34B /* WeatherApp-iOS1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeatherApp-iOS1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CA2AA92C3723560063E34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21CA2AAB2C3723560063E34B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				21CA2ABD2C37239C0063E34B /* CitiesTableViewController.swift */,
 				21CA2ABF2C3728B60063E34B /* NetworkingService.swift */,
 				21CA2AC12C3728E60063E34B /* City.swift */,
+				21AF92002C41845500A44285 /* WeatherViewController.swift */,
 			);
 			path = "WeatherApp-iOS1";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CA2AAA2C3723560063E34B /* AppDelegate.swift in Sources */,
+				21AF92012C41845500A44285 /* WeatherViewController.swift in Sources */,
 				21CA2AC22C3728E60063E34B /* City.swift in Sources */,
 				21CA2AAC2C3723560063E34B /* SceneDelegate.swift in Sources */,
 				21CA2ABE2C37239C0063E34B /* CitiesTableViewController.swift in Sources */,
