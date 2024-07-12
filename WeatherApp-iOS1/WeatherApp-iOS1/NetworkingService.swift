@@ -64,7 +64,7 @@ class NetworkingService {
     
     // Option 2: send data via completion Handler.
 
-    func getWeatherInCity(c: City, completionHandler: @escaping (WeatherObject)->Void ){
+    func getWeatherInCity(c: City, completionHandler: @escaping (WeatherObject?)->Void ){
         
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(c.toString())&appid=071c3ffca10be01d334505630d2c1a9c&units=metric"
         let urlObject = URL(string: urlString)!
@@ -73,14 +73,14 @@ class NetworkingService {
             
             if let isError = error {
                 print (isError)
-              
+                completionHandler(nil)
                 
                 return
             }
                 // there is no error
                 guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                     print("There is incorrect response")
-
+                    completionHandler(nil)
                     return
                 }
                 

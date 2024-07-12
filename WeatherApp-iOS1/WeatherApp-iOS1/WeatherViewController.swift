@@ -24,15 +24,50 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = city?.toString()
         NetworkingService.shared.getWeatherInCity(c: city!) { weatherObj in
-            self.tempText.text = "\( weatherObj.main.temp)"
-            self.descText.text = weatherObj.weather[0].description
-            self.feelsLike.text = "\( weatherObj.main.feels_like)"
-            
+            if let goodWO = weatherObj {
+                self.tempText.text = "\( goodWO.main.temp)"
+                self.descText.text = goodWO.weather[0].description
+                self.feelsLike.text = "\( goodWO.main.feels_like)"
+                
+                self.downloadImage(icon: goodWO.weather[0].icon)
+               
+                
+                
+            }else {
+                
+                self.tempText.text = "NO data availalbe"
+                self.descText.text = "NO data availalbe"
+                self.feelsLike.text = "NO data availalbe"
+                
+            }
         }
     }
     
 
+    func downloadImage(icon: String){
+       
+          let myQ = DispatchQueue(label: "myQ")
+            myQ.async {
+             
+                do {
+                    let imageData = try Data(contentsOf: URL(string: "https://openweathermap.org/img/wn/\(icon)@2x.png")! )
+                    DispatchQueue.main.async {
+                        self.weatherIcon.image = UIImage(data: imageData)
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }
+           
+            
+       
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

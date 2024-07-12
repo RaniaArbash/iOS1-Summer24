@@ -55,11 +55,14 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
         }
     }
     
-    func fromStringToCity(stringCity: String) -> City{
-    
-        let parts = stringCity.split(separator: ",")
-
-        return City(name: String(parts[0].trimmingPrefix(" ")), state: String(parts[1].trimmingPrefix(" ")), country: String(parts[2].trimmingPrefix(" ")))
+    func fromStringToCity(stringCity: String) -> City?{
+        
+        if stringCity.count != 0 {
+            let parts = stringCity.split(separator: ",")
+            
+            return City(name: String(parts[0].trimmingPrefix(" ")), state: String(parts[1].trimmingPrefix(" ")), country: String(parts[2].trimmingPrefix(" ")))
+        }
+        return nil
     }
     
     
