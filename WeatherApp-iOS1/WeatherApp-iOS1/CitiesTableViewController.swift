@@ -8,14 +8,29 @@
 import UIKit
 
 class CitiesTableViewController: UITableViewController, UISearchBarDelegate, NetworkingServiceDelegate {
- 
-    var apiList = [String]()
     
+    var apiList = [String]()
+    var nname = (UIApplication.shared.delegate as! AppDelegate).myNotification
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkingService.shared.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(gettingCitiesViaNotification), name: nname, object: nil)
+        
     }
+    
+    @objc
+    func gettingCitiesViaNotification(_ n: Notification){
+        let  list =  n.object as! [String]
+        apiList = list
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+
+        }
+    }
+    
+    
 
     // MARK: - Table view data source
 

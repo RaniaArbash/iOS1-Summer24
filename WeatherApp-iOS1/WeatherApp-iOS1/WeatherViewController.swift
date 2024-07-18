@@ -8,13 +8,8 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
-    
     @IBOutlet weak var weatherIcon: UIImageView!
-    
-    
     @IBOutlet weak var descText: UILabel!
-    
     
     @IBOutlet weak var feelsLike: UILabel!
     
@@ -25,24 +20,48 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = city?.toString()
-        NetworkingService.shared.getWeatherInCity(c: city!) { weatherObj in
-            if let goodWO = weatherObj {
-                self.tempText.text = "\( goodWO.main.temp)"
-                self.descText.text = goodWO.weather[0].description
-                self.feelsLike.text = "\( goodWO.main.feels_like)"
+        NetworkingService.shared.getWeatherInCity(c: city!) { result in
+            switch result {
                 
-                self.downloadImage(icon: goodWO.weather[0].icon)
+            case .success(let goodWO):
                
+                    self.tempText.text = "\( goodWO.main.temp)"
+                    self.descText.text = goodWO.weather[0].description
+                    self.feelsLike.text = "\( goodWO.main.feels_like)"
+                    self.downloadImage(icon: goodWO.weather[0].icon)
+                            
+                    break
                 
-                
-            }else {
-                
+            case .failure(let error):
+                print (error)
                 self.tempText.text = "NO data availalbe"
                 self.descText.text = "NO data availalbe"
                 self.feelsLike.text = "NO data availalbe"
+                break
                 
             }
+            
+            
         }
+        
+        //{ weatherObj in
+//            if let goodWO = weatherObj {
+//                self.tempText.text = "\( goodWO.main.temp)"
+//                self.descText.text = goodWO.weather[0].description
+//                self.feelsLike.text = "\( goodWO.main.feels_like)"
+//                
+//                self.downloadImage(icon: goodWO.weather[0].icon)
+//               
+//                
+//                
+//            }else {
+//                
+//                self.tempText.text = "NO data availalbe"
+//                self.descText.text = "NO data availalbe"
+//                self.feelsLike.text = "NO data availalbe"
+//                
+//            }
+//        }
     }
     
 
