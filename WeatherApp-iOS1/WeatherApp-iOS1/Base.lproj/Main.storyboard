@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r1u-Fm-aLo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oNg-Pb-Bbc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cities Table View Controller-->
+        <!--Search For New Cities-->
         <scene sceneID="u7c-9b-vCP">
             <objects>
                 <tableViewController id="VpZ-AM-hBK" customClass="CitiesTableViewController" customModule="WeatherApp_iOS1" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,9 +32,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="47.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="cqc-dk-qHO" kind="show" id="fBm-pX-Eam"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,11 +39,11 @@
                             <outlet property="delegate" destination="VpZ-AM-hBK" id="jKa-Jn-c1E"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vha-py-lhQ"/>
+                    <navigationItem key="navigationItem" title="Search For New Cities" id="vha-py-lhQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4f-6X-aHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.2671755725191" y="50.70422535211268"/>
+            <point key="canvasLocation" x="2845" y="35"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="qwi-6I-mUn">
@@ -116,25 +113,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AME-r8-4nR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956.4885496183206" y="67.605633802816911"/>
+            <point key="canvasLocation" x="2741" y="806"/>
+        </scene>
+        <!--Favourit Cities-->
+        <scene sceneID="cXj-jk-1ed">
+            <objects>
+                <tableViewController id="ctI-xw-Y8T" customClass="FavTableViewController" customModule="WeatherApp_iOS1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L6M-ym-Wwr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="giu-qF-HE3">
+                                <rect key="frame" x="0.0" y="50" width="393" height="47.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="giu-qF-HE3" id="459-Fe-IvD">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="47.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="cqc-dk-qHO" kind="show" id="vHm-PW-OpC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ctI-xw-Y8T" id="uR2-Wu-g3D"/>
+                            <outlet property="delegate" destination="ctI-xw-Y8T" id="n1H-pe-JNX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favourit Cities" id="ou3-Gh-ES7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7zC-Bc-9jc">
+                            <connections>
+                                <segue destination="VpZ-AM-hBK" kind="show" identifier="toadd" id="O0a-53-yWR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfb-Fz-c1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057.2519083969464" y="34.507042253521128"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="XE9-1i-9pB">
+        <scene sceneID="F6Z-wE-lPG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r1u-Fm-aLo" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oNg-Pb-Bbc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UGY-lv-Aoj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2r-HF-rlc">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VpZ-AM-hBK" kind="relationship" relationship="rootViewController" id="jLd-xx-pVn"/>
+                        <segue destination="ctI-xw-Y8T" kind="relationship" relationship="rootViewController" id="Crk-WI-fFU"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="goZ-Ir-fOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wq6-CF-Kf8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="188.54961832061068" y="50.70422535211268"/>
+            <point key="canvasLocation" x="1130.534351145038" y="34.507042253521128"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2107DA4B2C5C0ABC00E77627 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2107DA4A2C5C0ABC00E77627 /* GoogleService-Info.plist */; };
+		2107DA4E2C5C0B7A00E77627 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2107DA4D2C5C0B7A00E77627 /* FirebaseFirestore */; };
+		2107DA502C5C0FC800E77627 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107DA4F2C5C0FC700E77627 /* FirestoreManager.swift */; };
+		2107DA522C5C160100E77627 /* FavTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107DA512C5C160100E77627 /* FavTableViewController.swift */; };
 		21AF92012C41845500A44285 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF92002C41845500A44285 /* WeatherViewController.swift */; };
 		21CA2AAA2C3723560063E34B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2AA92C3723560063E34B /* AppDelegate.swift */; };
 		21CA2AAC2C3723560063E34B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CA2AAB2C3723560063E34B /* SceneDelegate.swift */; };
@@ -19,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2107DA4A2C5C0ABC00E77627 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2107DA4F2C5C0FC700E77627 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		2107DA512C5C160100E77627 /* FavTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewController.swift; sourceTree = "<group>"; };
 		21AF92002C41845500A44285 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		21CA2AA62C3723560063E34B /* WeatherApp-iOS1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeatherApp-iOS1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CA2AA92C3723560063E34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2107DA4E2C5C0B7A00E77627 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +72,7 @@
 			children = (
 				21CA2AA92C3723560063E34B /* AppDelegate.swift */,
 				21CA2AAB2C3723560063E34B /* SceneDelegate.swift */,
+				2107DA4A2C5C0ABC00E77627 /* GoogleService-Info.plist */,
 				21CA2AAF2C3723560063E34B /* Main.storyboard */,
 				21CA2AB22C3723570063E34B /* Assets.xcassets */,
 				21CA2AB42C3723570063E34B /* LaunchScreen.storyboard */,
@@ -72,6 +81,8 @@
 				21CA2ABF2C3728B60063E34B /* NetworkingService.swift */,
 				21CA2AC12C3728E60063E34B /* City.swift */,
 				21AF92002C41845500A44285 /* WeatherViewController.swift */,
+				2107DA4F2C5C0FC700E77627 /* FirestoreManager.swift */,
+				2107DA512C5C160100E77627 /* FavTableViewController.swift */,
 			);
 			path = "WeatherApp-iOS1";
 			sourceTree = "<group>";
@@ -92,6 +103,9 @@
 			dependencies = (
 			);
 			name = "WeatherApp-iOS1";
+			packageProductDependencies = (
+				2107DA4D2C5C0B7A00E77627 /* FirebaseFirestore */,
+			);
 			productName = "WeatherApp-iOS1";
 			productReference = 21CA2AA62C3723560063E34B /* WeatherApp-iOS1.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +134,9 @@
 				Base,
 			);
 			mainGroup = 21CA2A9D2C3723560063E34B;
+			packageReferences = (
+				2107DA4C2C5C0B7A00E77627 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 21CA2AA72C3723560063E34B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CA2AB32C3723570063E34B /* Assets.xcassets in Resources */,
+				2107DA4B2C5C0ABC00E77627 /* GoogleService-Info.plist in Resources */,
 				21CA2AB62C3723570063E34B /* Base in Resources */,
 				21CA2AB12C3723560063E34B /* Base in Resources */,
 			);
@@ -148,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CA2AAA2C3723560063E34B /* AppDelegate.swift in Sources */,
+				2107DA502C5C0FC800E77627 /* FirestoreManager.swift in Sources */,
 				21AF92012C41845500A44285 /* WeatherViewController.swift in Sources */,
+				2107DA522C5C160100E77627 /* FavTableViewController.swift in Sources */,
 				21CA2AC22C3728E60063E34B /* City.swift in Sources */,
 				21CA2AAC2C3723560063E34B /* SceneDelegate.swift in Sources */,
 				21CA2ABE2C37239C0063E34B /* CitiesTableViewController.swift in Sources */,
@@ -373,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2107DA4C2C5C0B7A00E77627 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2107DA4D2C5C0B7A00E77627 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2107DA4C2C5C0B7A00E77627 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21CA2A9E2C3723560063E34B /* Project object */;
 }

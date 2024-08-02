@@ -11,6 +11,7 @@ class City {
     var name: String = ""
     var state: String = ""
     var country : String = ""
+    var docID: String? = nil
     
     func toString() -> String{
         return "\(name),\(state),\(country)"
@@ -21,7 +22,12 @@ class City {
         self.state = state
         self.country = country
     }
-    
+    init(docID: String, name: String, state: String, country: String) {
+        self.docID = docID
+        self.name = name
+        self.state = state
+        self.country = country
+    }
 }
 
 

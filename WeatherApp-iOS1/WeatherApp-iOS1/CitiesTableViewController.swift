@@ -95,13 +95,28 @@ class CitiesTableViewController: UITableViewController, UISearchBarDelegate, Net
     
     // Important: Don't add didSelectRow and prepareForSegue in the same view controller.
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var i = tableView.indexPathForSelectedRow?.row
-        var selectedCity = fromStringToCity(stringCity: apiList[i!])
-        (segue.destination as! WeatherViewController).city = selectedCity
+        let alert = UIAlertController(title: "Saving The City", message: "Would you like to save this city in your favourit list?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            
+            FirestoreManager.shared.addCityToFirestore(city: self.fromStringToCity(stringCity: self.apiList[indexPath.row])!)
+            
+            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "NO", style: .cancel))
+        
+        
+        present(alert, animated: true)
+        
         
     }
+    
     
 
     /*
